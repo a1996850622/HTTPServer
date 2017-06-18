@@ -1,8 +1,18 @@
 # HTTPServer
 [C] HTTP 1.0 Server
 
-It just a simple HTTP1.0 server by "C".
 
-And I attach the simple html file by the way.
+## The File That I Attached
+In addition to the "C Program", I also attach the "Node.js" version.
 
-I also attach the HTTP1.1 server by "Node.js"
+But the "Node.js" version is HTTP1.1.
+
+So you can use "wireshark" to compare their packets.
+
+
+## How To Execute Them
+If you want execute "httpserver.c", please use Linux environment.
+
+You can enter the following commands on your terminal:
+"gcc -g -Wall httpserver.c -o httpserver -lpthread"
+"sudo ./httpserver"
