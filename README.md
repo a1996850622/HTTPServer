@@ -14,5 +14,7 @@ So you can use "wireshark" to compare their packets.
 If you want execute "httpserver.c", please use Linux environment.
 
 You can enter the following commands on your terminal:
-"gcc -g -Wall httpserver.c -o httpserver -lpthread"
-"sudo ./httpserver"
+
+1. "gcc -g -Wall httpserver.c -o httpserver -lpthread"
+
+2. "sudo ./httpserver"
