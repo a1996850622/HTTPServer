@@ -11,7 +11,7 @@
   So you can use "wireshark" to compare their packets.
 
 
-### Install
+### Execute
 - ##### If you want execute "httpserver.c"
   You can enter the following commands on your terminal:
   1. `gcc -g -Wall httpserver.c -o httpserver -lpthread`
