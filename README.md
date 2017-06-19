@@ -11,7 +11,7 @@ So you can use "wireshark" to compare their packets.
 
 
 ## How To Execute Them
-If you want execute "httpserver.c".
+* If you want execute "httpserver.c".
 
 You can enter the following commands on your terminal:
 
@@ -20,8 +20,8 @@ You can enter the following commands on your terminal:
 2. "sudo ./httpserver"
 
 
-If you want to execute "HTTP.js"
+* If you want to execute "HTTP.js"
 
-You can enter the following commands on your terminal:
+You can enter the following command:
 
 1. "sudo node HTTP.js"
