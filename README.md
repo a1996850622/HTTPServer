@@ -22,6 +22,6 @@
   1. `sudo node HTTP.js`
 
 
-### Test Shell
+### Test Server
   You can see the "wget.sh" file.
   After running the httpserver.c, you can also use "sh wget.sh" command to test the server.
