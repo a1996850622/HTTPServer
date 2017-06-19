@@ -13,15 +13,15 @@ So you can use "wireshark" to compare their packets.
 ## How To Execute Them
 * If you want execute "httpserver.c".
 
-  ** You can enter the following commands on your terminal:
+  > You can enter the following commands on your terminal:
 
-    *** "gcc -g -Wall httpserver.c -o httpserver -lpthread"
+   1. "gcc -g -Wall httpserver.c -o httpserver -lpthread"
 
-    *** "sudo ./httpserver"
+   2. "sudo ./httpserver"
 
 
 * If you want to execute "HTTP.js"
 
-> You can enter the following command:
+  > You can enter the following command:
 
-1. "sudo node HTTP.js"
+   1. "sudo node HTTP.js"
