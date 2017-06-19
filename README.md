@@ -23,3 +23,5 @@
 
 
 ### Test Shell
+  You can see the "wget.sh" file.
+  After running the httpserver.c, you can also use "sh wget.sh" command to test the server.
