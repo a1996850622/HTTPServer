@@ -1,23 +1,4 @@
-#include <stdio.h>      // I/O stream
-#include <stdlib.h>     // Use some special function
-#include <string.h>     // String processing function
-#include <errno.h>      // Error number
-#include <signal.h>     // signal()
-#include <unistd.h>     // Provide functions for file and directory operations
-#include <sys/types.h>
-#include <sys/socket.h> // socket()
-#include <netinet/in.h> // Provide the structure of sockaddr_in
-#include <arpa/inet.h>
-#include <sys/wait.h>   // wait()
-#include <pthread.h>
-#include <sys/stat.h>
-#include <time.h>
-
-#include <libgen.h>     // For basename() and dirname().
-
 #include "HTTPServer.h"
-#include "ContentType.h"
-
 
 int main(int argc, char *argv[]){
     int port = DEFAULT_PORT;    // Server port
