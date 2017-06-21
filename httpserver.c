@@ -13,6 +13,10 @@
 #include <sys/stat.h>
 #include <time.h>
 
+
+#include "ContentType.h"
+
+
 // Used to output error messages
 void PANIC(char *msg);
 #define PANIC(msg){perror(msg);exit(-1);}
@@ -42,7 +46,7 @@ int transferfile(int clientfd, FILE *fp, int type,
                  int rangestart, int rangetotal);
 int senddata(int clientfd, char *buf, int length);
 void responsecode(int clientfd, int code, struct HttpRequest *httprequest);
-char* getcontenttype(char *type);
+// char* getcontenttype(char *type);
 // char* getcurrenttime();
 
 int main(int argc, char *argv[]){
@@ -288,7 +292,7 @@ void responsecode(int clientfd, int code, struct HttpRequest *httprequest){
                     "Content-Length: %ld\r\n"
                     "Connection: close\r\n"
                     "\r\n", 
-                    getcontenttype(httprequest->prefix), 
+                    getContentType(httprequest->prefix), 
                     httprequest->rangetotal);
             break;
 
@@ -327,6 +331,7 @@ char* getcurrenttime(){
 */
 
 /* To get data type of the file which client need. */
+/*
 char* getcontenttype(char *type){
     char* ContentType[16]={
         "jpeg", "image/jpeg",
@@ -347,7 +352,7 @@ char* getcontenttype(char *type){
     }
     return "application/octet-stream";
 }
-
+*/
 /* Used to transfer file. */
 int transferfile(int clientfd, FILE *fp, int type, 
                  int rangestart, int totallength){
