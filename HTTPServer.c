@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
 
     struct sockaddr_in client_addr;
     int len;                    // sizeof(client_addr)
-    int clientfd;
+    int clientfd; 
     
     pthread_t threadid;
 
@@ -155,14 +155,14 @@ int getRequest(char *requestbuf, struct HttpRequest *httpRequest){
     if(sscanf(requestbuf, "%s %s %s", 
               httpRequest -> method, path, protocol) != 3)
         return BAD_REQUEST;
-    
+
     // Method "GET"
     if(strcmp(httpRequest->method, "GET") == 0){
         if(path[strlen(path)-1] == '/') strcat(path, "test.html");
-
+        
+        httpRequest -> path = path;
         char *base = basename(path);
-        httpRequest -> path = base;
-                
+
         char *ext = strrchr(base,'.');
         if(!ext) strcpy(httpRequest -> prefix, "*");
         else {
@@ -170,8 +170,6 @@ int getRequest(char *requestbuf, struct HttpRequest *httpRequest){
             strcpy(httpRequest -> prefix, ext);
         }
 
-        puts("FLAG4");
-        
         printf("Path: %s\n"
             "Prefix: %s\n", 
             httpRequest -> path, 
@@ -185,19 +183,27 @@ int getRequest(char *requestbuf, struct HttpRequest *httpRequest){
 
 void getCommand(int clientfd, struct HttpRequest *httpRequest){
     struct stat s;
-    FILE *fp = fopen(httpRequest -> path, "r");
+    char path_R[PARSE_BUFFER_SIZE];
+    char path[PARSE_BUFFER_SIZE];
+    strcpy(path_R, httpRequest -> path);
+    sprintf(path, "%s%s", "./www/",path_R + 1);
+    printf("fopen() Path: %s\n", path);
+    
+    
+    FILE *fp = fopen(path, "r");
     
     // If file does not exists.
     if(fp == NULL){
-        printf("File not exist: %s\n", httpRequest -> path);
+        printf("File not exist: %s\n", path);
         responseCode(clientfd, 404, httpRequest);
+
     } 
     // If file exists.
     else {
-        printf("File exist: %s\n", httpRequest -> path); // puts("file exists");
+        printf("File exist: %s\n", path); // puts("file exists");
         
         if(httpRequest -> rangeflag == 0){
-            stat(httpRequest -> path, &s);
+            stat(path, &s);
             httpRequest -> rangetotal = s.st_size;
             printf("total length: %ld\n\n\n", httpRequest -> rangetotal);
         }
