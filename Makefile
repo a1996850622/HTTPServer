@@ -1,11 +1,11 @@
-HTTPServer: httpserver.o ContentType.o
-	gcc -g -Wall httpserver.o ContentType.o -o HTTPServer -lpthread
+HTTPServer: HTTPServer.o ContentType.o
+	gcc -g -Wall HTTPServer.o ContentType.o -o HTTPServer -lpthread
 
-httpserver.o: httpserver.c ContentType.h
-	gcc -g -Wall -c httpserver.c
+HTTPServer.o: HTTPServer.c ContentType.h
+	gcc -g -Wall -c HTTPServer.c
 
 ContentType.o: ContentType.c ContentType.h
 	gcc -g -Wall -c ContentType.c 
 
 clean:
-	rm -f httpserver.o ContentType.o HTTPServer
+	rm -f HTTPServer.o ContentType.o HTTPServer
