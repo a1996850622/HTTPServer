@@ -298,6 +298,7 @@ void responsecode(int clientfd, int code, struct HttpRequest *httprequest){
 
         case 404:
             strcpy(content, 
+                   "<!DOCTYPE html>"
                    "<html><head><title>404 Not Found</title></head>"
                    "<body><h1>404 Not Found</h1>"
                    "File Not Found.</body></html>");
@@ -309,7 +310,7 @@ void responsecode(int clientfd, int code, struct HttpRequest *httprequest){
                     "Connection: close\r\n"
                     "\r\n"
                     "%s", 
-                    "text/plain", strlen(content), content);
+                    "text/html", strlen(content), content);
             break;
 
         default:
@@ -317,7 +318,7 @@ void responsecode(int clientfd, int code, struct HttpRequest *httprequest){
     }
 
     /* Send the response to client. */
-    senddata(clientfd, content, strlen(content));
+    senddata(clientfd, buffer, strlen(buffer));
 }
 
 /*
@@ -332,7 +333,7 @@ char* getcurrenttime(){
 
 /* To get data type of the file which client need. */
 /*
-char* getcontenttype(char *type){
+char* getContentType(char *type){
     char* ContentType[16]={
         "jpeg", "image/jpeg",
         "png", "image/png",
