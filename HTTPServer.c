@@ -25,6 +25,7 @@ void PANIC(char *msg);
 #define RECEIVE_BUFFER_SIZE 1024
 #define SEND_BUFFER_SIZE 2048
 #define CONTENT_BUFFER_SIZE 1024
+#define PARSE_BUFFER_SIZE 1024
 
 #define GET_COMMAND 101
 #define BAD_REQUEST 901
@@ -151,8 +152,8 @@ void* threadFunc(void *threadArgs){
 
     struct HttpRequest httpRequest;
     httpRequest.content = NULL;
-    httpRequest.path = (char*) malloc(1024);
-    httpRequest.prefix = (char*) malloc(1024);
+    httpRequest.path = (char*) malloc(PARSE_BUFFER_SIZE);
+    httpRequest.prefix = (char*) malloc(PARSE_BUFFER_SIZE);
     httpRequest.rangeflag = 0;
     httpRequest.rangestart = 0;
     
@@ -202,7 +203,7 @@ void* threadFunc(void *threadArgs){
 }   // threadFunc()
 
 int getRequest(char *requestbuf, struct HttpRequest *httpRequest){
-    char path[1024];
+    char path[PARSE_BUFFER_SIZE];
     char protocol[20];
 
     // Parse Http Header.
@@ -239,7 +240,6 @@ int getRequest(char *requestbuf, struct HttpRequest *httpRequest){
 
 void getCommand(int clientfd, struct HttpRequest *httpRequest){
     struct stat s;
-
     FILE *fp = fopen(httpRequest -> path, "r");
     
     // If file does not exists.
