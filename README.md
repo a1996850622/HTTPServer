@@ -11,13 +11,22 @@
   So you can use "wireshark" to compare their packets.
 
 
-### Execute
-- ##### If you want execute "httpserver.c"
-  You can enter the following commands on your terminal:
-  1. `gcc -g -Wall httpserver.c -o httpserver -lpthread`
-  1. `sudo ./httpserver`
+### Install
+- ##### Install
+  - `meke`
+- ##### Clean all build files
+  - `make clear`
 
-- ##### If you want to execute "HTTP.js"
+
+### Execute
+- ##### If you want execute **`HTTPServer.c`**
+  You can enter the following commands on your terminal:
+  - `sudo ./httpserver`
+  It would run the server on port 80 as default.
+  Or, Choose a port number:
+  - `./httpserver 9487`
+
+- ##### If you want to execute **`HTTP.js`**
   You can enter the following command:
   1. `sudo node HTTP.js`
 
