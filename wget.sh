@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=htmlpage
+DIR=wget
 
 URL=http://127.0.0.1/test.html
 
