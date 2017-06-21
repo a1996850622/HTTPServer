@@ -13,7 +13,7 @@
 
 ### Install
 - ##### Install
-  - `meke`
+  - `make`
 - ##### Clean all build files
   - `make clear`
 
