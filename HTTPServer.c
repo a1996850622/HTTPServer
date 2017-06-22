@@ -17,10 +17,10 @@ int main(int argc, char *argv[]){
     action.sa_handler = SIG_IGN;
     sigaction(SIGPIPE, &action, 0);
 
-    // Used to handle signal child
-    __sighandler_t prehandler;
-    prehandler = signal(SIGCHLD, SIG_IGN);
-    if(prehandler == SIG_ERR) PANIC("Signal");
+    // Used to handle signal child, *fork*
+    // __sighandler_t prehandler;
+    // prehandler = signal(SIGCHLD, SIG_IGN);
+    // if(prehandler == SIG_ERR) PANIC("Signal");
 
     // Args define port witch be used.
     if(argc > 1){
@@ -79,10 +79,9 @@ int main(int argc, char *argv[]){
             // the resource will automatically freed.
             pthread_detach(threadid);
         }
-        
-        
+
     }   // Server Loop. While()
-    
+
     close(sockfd);
     return 0;
 }   // main()
