@@ -1,36 +1,45 @@
 # HTTPServer
 
-
-### Introduce
-  A simple *C* HTTP 1.0 Server, for homework :)
-
-
-### The File That I Attached
-  In addition to the "C Program", I also attach the "Node.js" version.
+  A simple *C* HTTP 1.0 Server, **for homework** :)
+  
+  In addition to the "C", I also attach the "Node.js" version.
+  
   But the "Node.js" version is HTTP 1.1.
+  
   So you can use "wireshark" to compare their packets.
 
 
-### Install
-- ##### Install
+## Install
+
+For `HTTPServer.c`:
+
+- Install
   - `make`
-- ##### Clean all build files
+- Clean all build files
   - `make clear`
 
 
-### Execute
-- ##### If you want execute **`HTTPServer.c`**
-  You can enter the following commands on your terminal:
-  - `sudo ./httpserver`
-  It would run the server on port 80 as default.
-  Or, Choose a port number:
-  - `./httpserver 9487`
+## Execute
 
-- ##### If you want to execute **`HTTP.js`**
-  You can enter the following command:
-  1. `sudo node HTTP.js`
+- ##### **`HTTPServer.c`**
+  - You need to run it as *root*, it would run the server on port 80 as default:
+    - `sudo ./httpserver`
+  - Or, Choose a port number, like this:
+    - `./httpserver 9487`
+
+- ##### **`HTTP.js`**
+  - You need to run it as *root*.
+    - `sudo node HTTP.js`
 
 
-### Test Server
-  You can see the "wget.sh" file.
-  After running the httpserver.c, you can also use "sh wget.sh" command to test the server.
+## Test Server
+
+**`wget.sh`** is a shell script, using `wget` command to download the page, 
+and save the files to [./wget](./wget/README.md).
+
+you can use this shell script to test the server.
+
+> Change the variable `URL` if you sherver did not use default port 80.
+
+Run it by this command:
+- `sh wget.sh`
