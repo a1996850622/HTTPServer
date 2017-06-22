@@ -35,7 +35,7 @@ For `HTTPServer.c`:
 ## Test Server
 
 **`wget.sh`** is a shell script, using `wget` command to download the page, 
-and save the files to [./wget](./wget/README.md).
+and save the files to [./wget](./wget/).
 
 you can use this shell script to test the server.
 
@@ -43,3 +43,7 @@ you can use this shell script to test the server.
 
 Run it by this command:
 - `sh wget.sh`
+
+## Documents
+
+See: [./Documents](./Documents)
