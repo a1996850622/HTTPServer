@@ -1,6 +1,6 @@
 # HTTPServer
 
-  A simple *C* HTTP 1.0 Server, **for homework** :)
+  A simple *C* HTTP 1.0 Server :)
   
   In addition to the "C", I also attach the "Node.js" version.
   
